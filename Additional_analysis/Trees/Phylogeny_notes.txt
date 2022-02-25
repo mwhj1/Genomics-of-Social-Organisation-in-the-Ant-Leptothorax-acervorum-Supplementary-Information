@@ -1,0 +1,24 @@
+LG2 region:
+346, 144, 370
+
+Scaffolds with 0 markers (95% filtering):
+146, 462, 112, 272, 514
+
+Scaffolds with 3 markers or less (95% filtering):
+248, 85, 363, 354
+
+
+I have converted the VCFs of these scaffold sets to phylip alignment format separately for male and female samples, for 6 alignments (3 each for males and females). 
+
+I then used PhyML to create trees with the following options:
+-100 bootstraps
+-GTR substitution model
+-Maximum likelihood estimation of base character frequencies
+-Maximum likelihood estimation of transition/transversion ratio
+-Maximum likelihood estimation of the proportion of invariable sites
+-Maximum likelihood estimation of gamma distribution shape parameter
+-FreeRate model of substution rate across sites
+-Best of NNI and SPR for tree topology searching
+-Tree topology, branch length and rate parameters all optimised
+
+I did not do model selection, after reading this paper (https://www.nature.com/articles/s41467-019-08822-w#Sec9).  It suggests that using the most parameter-rich model is usually fine, and they recommend GTR+I+G.  I could not work out how to do the +I+G but chose GTR as, from the PhyML manual, this is the most parameter-rich model available (all the other substitution models constrain the GTR model somehow).  The rest of the options were chosen to make the tree inference as sensitive as possible.
